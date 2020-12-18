@@ -39,7 +39,10 @@ public class Main {
 
         ListNode l3 = a.mergeTwoLists(l1, l2);
 
-
+        ///////////////////////// PALINDROME VERIFICATION TEST ////////////////////////////
+        
+        System.out.println(a.isPalindrome(123454321));
+        System.out.println(a.isPalindrome(12345678));
 
     }
 }
