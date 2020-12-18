@@ -174,4 +174,32 @@ public class Solution {
             return l2;
         }
     }
+
+    //////////// PALINDROME VALIDATION PROBLEM 9 //////////////////////
+
+    /*
+        Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+
+        Follow up: Could you solve it without converting the integer to a string?
+     */
+    public boolean isPalindrome(int x) {
+        boolean match = false;
+        int last, reverse = 0;
+        int number = x;
+        while(number > 0)
+        {
+            last = number % 10;
+            reverse = (reverse * 10) + last;
+            number /= 10;
+        }
+
+        if(x == reverse)
+        {
+            match = true;
+            return match;
+        }
+
+        return match;
+    }
+
 }
