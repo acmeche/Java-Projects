@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Solution {
 
     /////////// NUM TEAMS PROBLEM 1395 ////////////////
@@ -174,4 +177,215 @@ public class Solution {
             return l2;
         }
     }
+
+    //////////// PALINDROME VALIDATION PROBLEM 9 //////////////////////
+
+    /*
+        Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+
+        Follow up: Could you solve it without converting the integer to a string?
+     */
+    public boolean isPalindrome(int x) {
+        boolean match = false;
+        int last, reverse = 0;
+        int number = x;
+        while(number > 0)
+        {
+            last = number % 10;
+            reverse = (reverse * 10) + last;
+            number /= 10;
+        }
+
+        if(x == reverse)
+        {
+            match = true;
+            return match;
+        }
+
+        return match;
+    }
+
+    //////////////////////// REMOVE VOWELS PROBLEM 1119 ///////////////////////////////////////
+    /*
+        Given a string s, remove the vowels 'a', 'e', 'i', 'o', and 'u' from it, and return the new string.
+     */
+
+    public String removeVowels(String s) {
+        String t = s;
+        t = t.replace("a", "");
+        t = t.replace("e", "");
+        t = t.replace("i", "");
+        t = t.replace("o", "");
+        t = t.replace("u", "");
+        return t;
+    }
+
+    //////////////////////// REVERSE VOWELS PROBLEM 345 ///////////////////////////////////////
+    /*
+        Write a function that takes a string as input and reverse only the vowels of a string.
+     */
+
+    public String reverseVowels(String s) {
+        char[] arr = new char[s.length()];
+        ArrayList<Character> input = new ArrayList<Character>();        // array list to check for vowels from function input
+        ArrayList<Character> vowels = new ArrayList<Character>();       // vowel list that will need to be reversed
+        ArrayList<Character> swap = new ArrayList<Character>();         // array list to store reversed vowels
+        ArrayList<Integer> replace = new ArrayList<Integer>();          // position where characters need to be replaced in array list
+
+        int count = 0;
+
+        for(int i = 0; i < s.length(); i++)
+        {
+            input.add(s.charAt(i));
+
+            if(s.charAt(i) == 'a')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'e')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'i')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'o')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'u')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'A')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'E')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'I')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+
+            else if(s.charAt(i) == 'O')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+            else if(s.charAt(i) == 'U')
+            {
+                vowels.add(s.charAt(i));
+                replace.add(i);
+                count++;
+            }
+        }
+
+
+        for(int i = vowels.size() - 1; i >= 0; i--)        // fills up "swap" array list to swap letters with
+        {
+            swap.add(vowels.get(i));
+        }
+
+        for(int i = 0; i < swap.size(); i++)                // swap reversed letters in array list
+        {
+            input.set(replace.get(i), swap.get(i));
+        }
+
+        for(int i = 0; i < input.size(); i++)
+        {
+            arr[i] = input.get(i);
+        }
+
+        String str = new String(arr);
+
+        return str;
+    }
+
+    //////////////////////// CONTAINS DUPLICATES PROBLEM 217 ///////////////////////////////////////
+    /*
+        Given an array of integers, find if the array contains any duplicates.
+
+        Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+     */
+
+    public boolean containsDuplicate(int[] nums) {
+
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length-1; i++)
+        {
+            if(nums[i] == nums[i + 1])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int[] twoSumImproved(int[] nums, int target) {
+
+        int[] indices = new int[2];
+        indices[0] = 0;
+        indices[1] = 0;
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            for(int j = i + 1; j < nums.length; j++)
+            {
+                if(nums[i] + nums[j] == target)
+                {
+                    indices[0] = i;
+                    indices[1] = j;
+                    return indices;
+                }
+
+            }
+        }
+        return indices;
+    }
+
+    public boolean isAnagram(String s, String t) {
+        // convert to char arrays and then sort
+        char[] input1 = s.toCharArray();
+        char[] input2 = t.toCharArray();
+
+        Arrays.sort(input1);
+        Arrays.sort(input2);
+
+        // compares both arrays, if the sorted arrays are identical then it is an anagram by nature
+        if(Arrays.equals(input1, input2))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
