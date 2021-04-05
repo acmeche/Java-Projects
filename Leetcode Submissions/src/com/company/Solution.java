@@ -1,7 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Solution {
 
@@ -17,19 +16,14 @@ public class Solution {
 
     Return the number of teams you can form given the conditions. (soldiers can be part of multiple teams).*/
 
-    public int numTeams(int[] rating)
-    {
+    public int numTeams(int[] rating) {
         int count = 0;
         int size = rating.length;
 
-        for(int i = 0; i < size; i++)
-        {
-            for(int j = i + 1; j < size; j++)
-            {
-                for(int k = j + 1; k < size; k++)
-                {
-                    if((rating[i] < rating[j] && rating[j] < rating[k]) || (rating[i] > rating[j] && rating[j] > rating[k]))
-                    {
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                for (int k = j + 1; k < size; k++) {
+                    if ((rating[i] < rating[j] && rating[j] < rating[k]) || (rating[i] > rating[j] && rating[j] > rating[k])) {
                         count++;
                     }
                 }
@@ -47,22 +41,17 @@ public class Solution {
     public boolean checkPossibility(int[] nums) {
         int count = 0;
 
-        for(int i = 0; i < nums.length - 1; i++)
-        {
-            if(nums[i] > nums[i + 1])
-            {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1]) {
                 count++;
-                if(count >= 2)
-                {
+                if (count >= 2) {
                     return false;
                 }
-                if(i == 0)
-                {
-                    nums[i] = nums[i+1] - 1;
+                if (i == 0) {
+                    nums[i] = nums[i + 1] - 1;
                 }
-               if(i >= 1 && nums[i - 1] > nums[i + 1])
-                {
-                    nums[i-1] = nums[i] - nums[i+1] -1;
+                if (i >= 1 && nums[i - 1] > nums[i + 1]) {
+                    nums[i - 1] = nums[i] - nums[i + 1] - 1;
                     nums[i + 1] = nums[i] + 1;
                 }
 
@@ -124,22 +113,18 @@ public class Solution {
         boolean reward = true;
         char[] x = s.toCharArray();
         int count = 0;
-        for(int i = 0; i < x.length; i++)
-        {
+        for (int i = 0; i < x.length; i++) {
             // check in the char array for A and increment count, if count > 1 then set to false and return
-            if(x[i] == 'A')
-            {
+            if (x[i] == 'A') {
                 count++;
             }
-            if(count > 1)
-            {
+            if (count > 1) {
                 reward = false;
                 return reward;
             }
 
             // check in the string for "LLL"
-            else if(s.contains("LLL"))
-            {
+            else if (s.contains("LLL")) {
                 reward = false;
                 return reward;
             }
@@ -171,8 +156,7 @@ public class Solution {
         if (l1.val < l2.val) {
             l1.next = mergeTwoLists(l1.next, l2);
             return l1;
-        }
-        else {
+        } else {
             l2.next = mergeTwoLists(l1, l2.next);
             return l2;
         }
@@ -189,15 +173,13 @@ public class Solution {
         boolean match = false;
         int last, reverse = 0;
         int number = x;
-        while(number > 0)
-        {
+        while (number > 0) {
             last = number % 10;
             reverse = (reverse * 10) + last;
             number /= 10;
         }
 
-        if(x == reverse)
-        {
+        if (x == reverse) {
             match = true;
             return match;
         }
@@ -234,74 +216,46 @@ public class Solution {
 
         int count = 0;
 
-        for(int i = 0; i < s.length(); i++)
-        {
+        for (int i = 0; i < s.length(); i++) {
             input.add(s.charAt(i));
 
-            if(s.charAt(i) == 'a')
-            {
+            if (s.charAt(i) == 'a') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'e')
-            {
+            } else if (s.charAt(i) == 'e') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'i')
-            {
+            } else if (s.charAt(i) == 'i') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'o')
-            {
+            } else if (s.charAt(i) == 'o') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'u')
-            {
+            } else if (s.charAt(i) == 'u') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'A')
-            {
+            } else if (s.charAt(i) == 'A') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'E')
-            {
+            } else if (s.charAt(i) == 'E') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'I')
-            {
+            } else if (s.charAt(i) == 'I') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-
-            else if(s.charAt(i) == 'O')
-            {
+            } else if (s.charAt(i) == 'O') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
-            }
-            else if(s.charAt(i) == 'U')
-            {
+            } else if (s.charAt(i) == 'U') {
                 vowels.add(s.charAt(i));
                 replace.add(i);
                 count++;
@@ -309,18 +263,17 @@ public class Solution {
         }
 
 
-        for(int i = vowels.size() - 1; i >= 0; i--)        // fills up "swap" array list to swap letters with
+        for (int i = vowels.size() - 1; i >= 0; i--)        // fills up "swap" array list to swap letters with
         {
             swap.add(vowels.get(i));
         }
 
-        for(int i = 0; i < swap.size(); i++)                // swap reversed letters in array list
+        for (int i = 0; i < swap.size(); i++)                // swap reversed letters in array list
         {
             input.set(replace.get(i), swap.get(i));
         }
 
-        for(int i = 0; i < input.size(); i++)
-        {
+        for (int i = 0; i < input.size(); i++) {
             arr[i] = input.get(i);
         }
 
@@ -339,15 +292,18 @@ public class Solution {
     public boolean containsDuplicate(int[] nums) {
 
         Arrays.sort(nums);
-        for(int i = 0; i < nums.length-1; i++)
-        {
-            if(nums[i] == nums[i + 1])
-            {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
         }
         return false;
     }
+
+    //////////////////////// IMPROVED TWO SUM ///////////////////////////////////////
+    /*
+        Improved version of Two Sum function
+     */
 
     public int[] twoSumImproved(int[] nums, int target) {
 
@@ -355,12 +311,9 @@ public class Solution {
         indices[0] = 0;
         indices[1] = 0;
 
-        for(int i = 0; i < nums.length; i++)
-        {
-            for(int j = i + 1; j < nums.length; j++)
-            {
-                if(nums[i] + nums[j] == target)
-                {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
                     indices[0] = i;
                     indices[1] = j;
                     return indices;
@@ -371,6 +324,10 @@ public class Solution {
         return indices;
     }
 
+    //////////////////////// IS ANAGRAM FUNCTION ///////////////////////////////////////
+    /*
+        Takes 2 input strings, converts to char arrays, sorts and compares them. Returns true if the inputs are anagrams of each other
+     */
     public boolean isAnagram(String s, String t) {
         // convert to char arrays and then sort
         char[] input1 = s.toCharArray();
@@ -380,12 +337,468 @@ public class Solution {
         Arrays.sort(input2);
 
         // compares both arrays, if the sorted arrays are identical then it is an anagram by nature
-        if(Arrays.equals(input1, input2))
-        {
+        if (Arrays.equals(input1, input2)) {
             return true;
         }
 
         return false;
+    }
+
+    //////////////////////// CUSTOM STRSTR FUNCTION ///////////////////////////////////////
+    /*
+        Incomplete, function works but runtime is too long
+     */
+    /*public int strStr(String haystack, String needle) {
+
+        if(needle.isEmpty())
+        {
+            return 0;
+        }
+
+        else if(needle.length() > haystack.length())
+        {
+            return -1;
+        }
+
+        char[] hay = haystack.toCharArray();
+        char[] iNeedle = needle.toCharArray();
+        int count = 0;
+
+        for(int i = 0; i < haystack.length(); i++)
+        {
+            if(hay[i] == iNeedle[0])
+            {
+                for(int j = i; j < needle.length() + i; j++)
+                {
+                    if(hay[j] == iNeedle[count])
+                    {
+                        count++;
+                    }
+
+                    if(count == needle.length())
+                    {
+                        return i;
+                    }
+                }
+                count = 0;
+            }
+        }
+        return -1;
+    }*/
+
+    //////////////////////// countPrimes FUNCTION ///////////////////////////////////////
+    /*
+        Incomplete, function works but runtime is too long
+     */
+    public int countPrimes(int n) {
+
+        if (n == 0 || n == 1 || n == 2) {
+            return 0;
+        }
+        int notPrimeCount = 0;
+        boolean notPrime = false;
+
+        for (int i = 1; i < n; i++) {
+            for (int j = i - 1; j > 1; j--) {
+                if (i % j == 0) {
+                    notPrime = true;
+                }
+            }
+            if (notPrime) {
+                notPrime = false;
+                notPrimeCount++;
+            }
+        }
+        return n - notPrimeCount - 2;
+    }
+
+    //////////////////////// MOVE ZEROES PROBLEM 283 ///////////////////////////////////////
+    /*
+        Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+        Note that you must do this in-place without making a copy of the array.
+     */
+
+    public void moveZeroes(int[] nums) { // bubble sort except it's with 0's at the end
+
+        int temp = 0;
+
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (nums[j] == 0) {
+                    temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                }
+            }
+        }
+        // print functionality for the test, not needed in practice
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+
+    //////////////////////// PLUS ONE PROBLEM 66 ///////////////////////////////////////
+    /*
+        Given a non-empty array of decimal digits representing a non-negative integer, increment one to the integer.
+
+        The digits are stored such that the most significant digit is at the head of the list, and each element in the array contains a single digit.
+        You may assume the integer does not contain any leading zero, except the number 0 itself
+     */
+
+    public int[] plusOne(int[] digits) { // checks for trailing 9's by starting from the end, traces the array
+        // from the end and stops when it reaches a non-9 number
+        // also if the value is all 9's, makes a larger array and adds 1 with trailing 0's
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] == 9 && i == 0) {
+                int[] digits2 = new int[digits.length + 1];
+                digits2[0] = 1;
+                for (int j = 1; j < digits2.length - 1; j++) {
+                    digits2[j] = 0;
+                }
+                return digits2;
+            } else if (digits[i] == 9 && digits[i - 1] == 9) {
+                digits[i] = 0;
+            } else if (digits[i] == 9 && digits[i - 1] != 9) {
+                digits[i] = 0;
+                digits[i - 1] = digits[i - 1] + 1;
+                break;
+            } else {
+                digits[i] = digits[i] + 1;
+                break;
+            }
+        }
+        return digits;
+    }
+
+    //////////////////////// JEWELS AND STONES PROBLEM 771 ///////////////////////////////////////
+    /*
+        You're given strings jewels representing the types of stones that are jewels, and stones
+        representing the stones you have. Each character in stones is a type of stone you have.
+        You want to know how many of the stones you have are also jewels.
+
+        Letters are case sensitive, so "a" is considered a different type of stone from "A".
+     */
+
+    public int numJewelsInStones(String jewels, String stones) {
+
+        int count = 0;
+
+        for (int i = 0; i < jewels.length(); i++) {
+            for (int j = 0; j < stones.length(); j++) {
+                if (jewels.charAt(i) == stones.charAt(j)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    //////////////////////// LOGGER RATE LIMITED PROBLEM 771 ///////////////////////////////////////
+    /*
+        Design a logger system that receives a stream of messages along with their timestamps. Each unique
+        message should only be printed at most every 10 seconds (i.e. a message printed at timestamp t will
+        prevent other identical messages from being printed until timestamp t + 10).
+
+        All messages will come in chronological order. Several messages may arrive at the same timestamp.
+     */
+
+    // use hash map with the String as the key and the timestamp as the value
+    static class Logger {
+
+        /**
+         * Initialize your data structure here.
+         */
+        public Logger() {
+
+        }
+
+        HashMap logger = new HashMap();
+
+        /**
+         * Returns true if the message should be printed in the given timestamp, otherwise returns false.
+         * If this method returns false, the message will not be printed.
+         * The timestamp is in seconds granularity.
+         */
+        public boolean shouldPrintMessage(int timestamp, String message) {
+
+            if (!logger.containsKey(message)) {
+                logger.put(message, timestamp);
+                System.out.println(message);
+                return true;
+            }
+
+            if (timestamp < (int) logger.get(message) + 10) {
+                return false;
+            } else if (timestamp >= (int) logger.get(message) + 10) {
+                System.out.println(message);
+                logger.put(message, timestamp);
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    //////////////////////// DUPLICATE ZEROES PROBLEM 1089 ///////////////////////////////////////
+    /*
+        Given a fixed length array arr of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.
+
+        Note that elements beyond the length of the original array are not written.
+
+        Do the above modifications to the input array in place, do not return anything from your function.
+     */
+    public void duplicateZeros(int[] arr) {
+
+        int count = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == 0 && i >= 0) {
+                if (count == 1) {
+                    continue;
+                }
+                for (int j = arr.length - 1; j > i; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                arr[i + 1] = 0;
+                i += 1;
+            }
+        }
+        for(int i = 0; i < arr.length; i++) // print statement for test method, not needed for function
+        {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    //////////////////////// RUNNING SUM OF 1D ARRAY PROBLEM 1089 ///////////////////////////////////////
+    /*
+        Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+        Return the running sum of nums.
+     */
+
+    public int[] runningSum(int[] nums) {
+        for(int i = 0; i < nums.length - 1; i++)
+        {
+            nums[i+1] = nums[i] + nums[i+1];
+        }
+        return nums;
+    }
+
+    //////////////////////// SMALLER THAN CURRENT NUMBER PROBLEM 1365 ///////////////////////////////////////
+    /*
+        Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is,
+        for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+
+        Return the answer in an array.
+     */
+
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] count = new int[nums.length];
+
+        // intitialize count to 0 just in case
+
+        for(int i = 0; i < count.length; i++)
+        {
+            count[i] = 0;
+        }
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            for(int j = 0; j < nums.length; j++)
+            {
+                if(nums[i] > nums[j])
+                {
+                    count[i]++;
+                }
+            }
+        }
+
+        for (int i: count) // print function for test, not necessary
+        {
+            System.out.print(i + " ");
+        }
+        return count;
+    }
+
+    //////////////////////// NUMBER OF GOOD PAIRS PROBLEM 1512 ///////////////////////////////////////
+    /*
+        Given an array of integers nums.
+
+        A pair (i,j) is called good if nums[i] == nums[j] and i < j.
+
+        Return the number of good pairs.
+     */
+
+    public int numIdenticalPairs(int[] nums) { // using HashMap
+
+        int count = 0;
+
+        HashMap<Integer, Integer> a = new HashMap<Integer, Integer>();
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            a.put(i, nums[i]);
+        }
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            for(int j = 0; j < nums.length; j++)
+            {
+                if(a.get(i) == nums[j] && i < j)
+                {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    //////////////////////// DEFANGING AN IP ADDRESS PROBLEM 1108 ///////////////////////////////////////
+    /*
+        Given a valid (IPv4) IP address, return a defanged version of that IP address.
+
+        A defanged IP address replaces every period "." with "[.]".
+     */
+
+    public String defangIPaddr(String address) {
+
+        return address.replace(".", "[.]");
+    }
+
+    //////////////////////// SUM OF UNIQUE ELEMENTS PROBLEM 1748 ///////////////////////////////////////
+    /*
+        You are given an integer array nums. The unique elements of an array are the elements that appear exactly once in the array.
+
+        Return the sum of all the unique elements of nums.
+     */
+
+    public int sumOfUnique(int[] nums) {
+        HashMap<Integer, Integer> a = new HashMap<Integer, Integer>();
+        int sum = 0;
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            a.put(nums[i], 0);
+        }
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            a.put(nums[i], a.get(nums[i]) + 1);
+        }
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            if(a.get(nums[i]) > 1)
+            {
+                continue;
+            }
+            sum += nums[i];
+        }
+
+        return sum;
+    }
+
+    //////////////////////// FIND THE DUPLICATE NUMBER PROBLEM 287 ///////////////////////////////////////
+    /*
+        Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+
+        There is only one repeated number in nums, return this repeated number.
+     */
+
+    public int findDuplicate(int[] nums) {
+
+        int answer = 0;
+
+        HashMap<Integer, Integer> a = new HashMap<>();
+
+        // intitialize hash map to 0
+        for(int i = 0; i < nums.length; i++)
+        {
+            a.put(nums[i], 0);
+        }
+
+        // populate hash map with keys and values, add + 1 each time it finds the key
+        for(int i = 0; i < nums.length; i++)
+        {
+            a.put(nums[i], a.get(nums[i]) + 1);
+        }
+
+        // find the number that > 1, because it will be the only duplicate
+        for(int i = 0; i < nums.length; i++)
+        {
+            if(a.get(nums[i]) > 1)
+            {
+                answer = nums[i];
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+    //////////////////////// FIND THE SINGLE NUMBER PROBLEM 136 ///////////////////////////////////////
+    /*
+        Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+     */
+
+    public int singleNumber(int[] nums) { // This problem was almost identical to 287, changed conditions from 287 to solve
+        int answer = 0;
+
+        HashMap<Integer, Integer> a = new HashMap<>();
+
+        // intitialize hash map to 0
+        for (int i = 0; i < nums.length; i++) {
+            a.put(nums[i], 0);
+        }
+
+        // populate hash map with keys and values, add + 1 each time it finds the key
+        for (int i = 0; i < nums.length; i++) {
+            a.put(nums[i], a.get(nums[i]) + 1);
+        }
+
+        // find the number that == 1, because it will be the only non duplicate
+        for (int i = 0; i < nums.length; i++) {
+            if (a.get(nums[i]) == 1) {
+                answer = nums[i];
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+    //////////////////////// FIND THE SINGLE NUMBER PROBLEM 136 ///////////////////////////////////////
+    /*
+        Given two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
+
+        We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j.
+
+        These lists A and B may contain duplicates. If there are multiple answers, output any of them.
+     */
+
+    public int[] anagramMappings(int[] A, int[] B) {
+
+        int[] index = new int[A.length];
+
+        for(int i = 0; i < A.length; i++)
+        {
+            for(int j = 0; j < B.length; j++)
+            {
+                if(A[i] == B[j])
+                {
+                    index[i] = j;
+                    continue;
+                }
+            }
+        }
+        System.out.print("The anagram map is: ");
+        for (int i: index) // print function is for test, not necessary in practice
+        {
+            System.out.print(i + " ");
+        }
+        return index;
     }
 
 }
